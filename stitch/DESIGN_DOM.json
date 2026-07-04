@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-07-04T16:51:54.375Z",
+  "screenCount": 1,
+  "screens": {
+    "bfa766eef8b34378b78263907c83a215": {
+      "screenId": "bfa766eef8b34378b78263907c83a215",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "main",
+          "layout": "block",
+          "classes": [
+            "w-full",
+            "max-w-3xl",
+            "bg-surface-container",
+            "border",
+            "border-outline-variant",
+            "rounded",
+            "shadow-md",
+            "overflow-hidden"
+          ],
+          "childCount": 19
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Force",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-2",
+            "bg-primary-container",
+            "hover:bg-inverse-primary",
+            "text-on-primary-container",
+            "hover:text-white",
+            "px-4",
+            "py-2",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "border",
+            "border-transparent",
+            "h-[32px]"
+          ],
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "checkbox",
+          "label": "checkbox",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "sr-only"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [],
+      "cards": [],
+      "icons": [
+        "monitor_heart",
+        "history",
+        "speed",
+        "schedule",
+        "refresh",
+        "check_circle"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "on-surface": "#dae2fd",
+        "secondary-container": "#3a4a5f",
+        "surface-container-lowest": "#060e20",
+        "secondary-fixed-dim": "#b7c8e1",
+        "secondary": "#b7c8e1",
+        "surface-dim": "#0b1326",
+        "on-error-container": "#ffdad6",
+        "primary-container": "#4d8eff",
+        "inverse-primary": "#005ac2",
+        "on-primary-fixed-variant": "#004395",
+        "surface": "#0b1326",
+        "on-tertiary-fixed": "#311400",
+        "inverse-on-surface": "#283044",
+        "on-primary-container": "#00285d",
+        "inverse-surface": "#dae2fd",
+        "on-secondary": "#213145",
+        "on-tertiary": "#502400",
+        "on-surface-variant": "#c2c6d6",
+        "on-tertiary-fixed-variant": "#723600",
+        "background": "#0b1326",
+        "tertiary-fixed": "#ffdcc6",
+        "error-container": "#93000a",
+        "surface-bright": "#31394d",
+        "primary-fixed": "#d8e2ff",
+        "on-primary": "#002e6a",
+        "primary": "#adc6ff",
+        "error": "#ffb4ab",
+        "secondary-fixed": "#d3e4fe",
+        "outline-variant": "#424754",
+        "on-error": "#690005",
+        "on-secondary-fixed": "#0b1c30",
+        "outline": "#8c909f",
+        "tertiary-container": "#df7412",
+        "on-background": "#dae2fd",
+        "tertiary-fixed-dim": "#ffb786",
+        "surface-container-highest": "#2d3449",
+        "surface-container-high": "#222a3d",
+        "surface-variant": "#2d3449",
+        "surface-container-low": "#131b2e",
+        "on-primary-fixed": "#001a42",
+        "primary-fixed-dim": "#adc6ff",
+        "surface-container": "#171f33",
+        "tertiary": "#ffb786",
+        "on-secondary-container": "#a9bad3",
+        "surface-tint": "#adc6ff",
+        "on-tertiary-container": "#461f00",
+        "on-secondary-fixed-variant": "#38485d"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Hanken Grotesk",
+        "JetBrains Mono"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "2"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "Force",
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "checkbox",
+          "type": "checkbox",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [],
+      "title": "Status Utility - Scoped Review Pulse"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "screenId": "bfa766eef8b34378b78263907c83a215",
+    "name": "Status Utility - Scoped Review Pulse",
+    "type": "app-screen",
+    "description": "Status Utility - Scoped Review Pulse screen",
+    "surfaceIds": [
+      "SURF_STATUS_UTILITY"
+    ]
+  }
+]

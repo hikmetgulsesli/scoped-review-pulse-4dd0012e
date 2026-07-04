@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Status Utility - Scoped Review Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#dae2fd",
+                        "secondary-container": "#3a4a5f",
+                        "surface-container-lowest": "#060e20",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "secondary": "#b7c8e1",
+                        "surface-dim": "#0b1326",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#4d8eff",
+                        "inverse-primary": "#005ac2",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface": "#0b1326",
+                        "on-tertiary-fixed": "#311400",
+                        "inverse-on-surface": "#283044",
+                        "on-primary-container": "#00285d",
+                        "inverse-surface": "#dae2fd",
+                        "on-secondary": "#213145",
+                        "on-tertiary": "#502400",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "background": "#0b1326",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error-container": "#93000a",
+                        "surface-bright": "#31394d",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary": "#002e6a",
+                        "primary": "#adc6ff",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#d3e4fe",
+                        "outline-variant": "#424754",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#0b1c30",
+                        "outline": "#8c909f",
+                        "tertiary-container": "#df7412",
+                        "on-background": "#dae2fd",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "surface-container-highest": "#2d3449",
+                        "surface-container-high": "#222a3d",
+                        "surface-variant": "#2d3449",
+                        "surface-container-low": "#131b2e",
+                        "on-primary-fixed": "#001a42",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-container": "#171f33",
+                        "tertiary": "#ffb786",
+                        "on-secondary-container": "#a9bad3",
+                        "surface-tint": "#adc6ff",
+                        "on-tertiary-container": "#461f00",
+                        "on-secondary-fixed-variant": "#38485d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin": "16px",
+                        "stack-compact": "4px",
+                        "stack-default": "12px",
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "code-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(77, 142, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(77, 142, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(77, 142, 255, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen flex items-center justify-center p-margin">
+<!-- TopNavBar (Nav Shell Suppressed per brief, but implemented as requested if standalone component structure is needed, though brief says 'No navigation'. I will omit TopNav based on 'No navigation, profiles, or sidebars as per the brief.') -->
+<!-- Main Dashboard Container -->
+<main class="w-full max-w-3xl bg-surface-container border border-outline-variant rounded shadow-md overflow-hidden">
+<!-- Header -->
+<header class="flex justify-between items-center p-stack-default border-b border-outline-variant bg-surface-container-high">
+<div class="flex items-center gap-stack-default">
+<div class="w-2 h-2 rounded-full bg-primary pulse-dot"></div>
+<h1 class="font-headline-md text-headline-md text-primary">Scoped Review Pulse</h1>
+</div>
+<!-- Toggle ACT_TOGGLE_STATUS -->
+<label class="flex items-center cursor-pointer gap-stack-compact">
+<div class="relative">
+<input checked="" class="sr-only" type="checkbox"/>
+<div class="block bg-surface-container-highest w-10 h-6 rounded-DEFAULT border border-outline-variant transition-colors duration-200"></div>
+<div class="dot absolute left-1 top-1 bg-primary w-4 h-4 rounded-DEFAULT transition transform translate-x-4"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider ml-2">Ready</span>
+</label>
+</header>
+<!-- Content Area -->
+<div class="p-stack-default flex flex-col gap-stack-default">
+<!-- Status Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-stack-default">
+<!-- Status Item 1 -->
+<div class="bg-surface border border-outline-variant rounded p-stack-default flex flex-col gap-stack-compact hover:border-primary transition-colors">
+<div class="flex justify-between items-center pb-stack-compact border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">System Health</span>
+<span class="material-symbols-outlined text-primary" style="font-size: 16px;">monitor_heart</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+<span class="font-code-md text-code-md text-on-surface">Operational</span>
+</div>
+</div>
+<!-- Status Item 2 -->
+<div class="bg-surface border border-outline-variant rounded p-stack-default flex flex-col gap-stack-compact hover:border-primary transition-colors">
+<div class="flex justify-between items-center pb-stack-compact border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Last Scan</span>
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">history</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-code-md text-code-md text-on-surface-variant">14m ago</span>
+</div>
+</div>
+<!-- Status Item 3 -->
+<div class="bg-surface border border-outline-variant rounded p-stack-default flex flex-col gap-stack-compact hover:border-primary transition-colors">
+<div class="flex justify-between items-center pb-stack-compact border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pulse Rate</span>
+<span class="material-symbols-outlined text-green-500" style="font-size: 16px;">speed</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-code-md text-code-md text-on-surface text-green-400">98%</span>
+</div>
+</div>
+</section>
+<!-- Control Section -->
+<section class="flex flex-col sm:flex-row justify-between items-center bg-surface border border-outline-variant rounded p-stack-default mt-stack-compact">
+<div class="flex items-center gap-stack-compact mb-stack-default sm:mb-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">schedule</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant" id="current-timestamp">2023-10-27 14:30:05 UTC</span>
+</div>
+<button class="flex items-center gap-2 bg-primary-container hover:bg-inverse-primary text-on-primary-container hover:text-white px-4 py-2 rounded-DEFAULT transition-colors border border-transparent h-[32px]">
+<span class="material-symbols-outlined" style="font-size: 16px;">refresh</span>
+<span class="font-body-sm text-body-sm font-semibold">Force Refresh</span>
+</button>
+</section>
+<!-- Feedback Layer -->
+<div class="flex items-center justify-center gap-2 pt-stack-compact">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 14px;">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Local State: Synchronized</span>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to handle toggle visual state if needed, though pure CSS handles the layout mostly.
+        document.querySelector('input[type="checkbox"]').addEventListener('change', function(e) {
+            const dot = this.parentElement.querySelector('.dot');
+            const bg = this.parentElement.querySelector('.block');
+            const label = this.parentElement.parentElement.querySelector('span');
+            
+            if(this.checked) {
+                dot.classList.add('translate-x-4');
+                dot.classList.add('bg-primary');
+                dot.classList.remove('bg-on-surface-variant');
+                label.textContent = 'READY';
+                label.classList.add('text-primary');
+                label.classList.remove('text-on-surface-variant');
+            } else {
+                dot.classList.remove('translate-x-4');
+                dot.classList.remove('bg-primary');
+                dot.classList.add('bg-on-surface-variant');
+                label.textContent = 'PAUSED';
+                label.classList.remove('text-primary');
+                label.classList.add('text-on-surface-variant');
+            }
+        });
+
+        // Update timestamp
+        function updateTime() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            const timestamp = `${now.getUTCFullYear()}-${pad(now.getUTCMonth()+1)}-${pad(now.getUTCDate())} ${pad(now.getUTCHours())}:${pad(now.getUTCMinutes())}:${pad(now.getUTCSeconds())} UTC`;
+            document.getElementById('current-timestamp').textContent = timestamp;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body></html>
