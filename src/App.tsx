@@ -11,6 +11,42 @@ import {
 import { registerAppBridge } from './test/bridge';
 import { StatusUtilityScopedReviewPulse } from './screens';
 
+function AppShellLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const state = useScopedReviewPulse();
+
+  return (
+    <div
+      data-setfarm-root
+      data-testid="setfarm-app-root"
+      className="relative min-h-screen w-full overflow-hidden bg-surface text-on-surface"
+    >
+      {state.lastError && state.lastError.recoverable && (
+        <div className="fixed top-4 right-4 bg-primary-container text-on-primary-container p-4 rounded-DEFAULT max-w-sm z-50">
+          <p className="font-body-sm">{state.lastError.message}</p>
+          <button
+            type="button"
+            onClick={state.clearError}
+            className="mt-2 text-primary hover:bg-inverse-primary rounded-full px-2 py-1 font-label-caps text-sm"
+          >
+            Kapat
+          </button>
+        </div>
+      )}
+      {state.storageStatus === 'saving' && (
+        <div className="fixed bottom-4 left-4 bg-surface-container text-on-surface-variant p-2 rounded-full text-xs font-label-caps">
+          Kaydediliyor...
+          <span className="pulse-dot ml-2 inline-block w-2 h-2 bg-primary rounded-full" />
+        </div>
+      )}
+      {children}
+    </div>
+  );
+}
+
 function AppContent() {
   const state = useScopedReviewPulse();
 
@@ -38,60 +74,16 @@ function AppContent() {
 
   if (activeScreenId === 'bfa766eef8b34378b78263907c83a215') {
     return (
-      <div
-        data-setfarm-root
-        data-testid="setfarm-app-root"
-        className="relative min-h-screen w-full overflow-hidden bg-surface text-on-surface"
-      >
-        {state.lastError && state.lastError.recoverable && (
-          <div className="fixed top-4 right-4 bg-primary-container text-on-primary-container p-4 rounded-DEFAULT max-w-sm z-50">
-            <p className="font-body-sm">{state.lastError.message}</p>
-            <button
-              type="button"
-              onClick={state.clearError}
-              className="mt-2 text-primary hover:bg-inverse-primary rounded-full px-2 py-1 font-label-caps text-sm"
-            >
-              Kapat
-            </button>
-          </div>
-        )}
-        {state.storageStatus === 'saving' && (
-          <div className="fixed bottom-4 left-4 bg-surface-container text-on-surface-variant p-2 rounded-full text-xs font-label-caps">
-            Kaydediliyor...
-            <span className="pulse-dot ml-2 inline-block w-2 h-2 bg-primary rounded-full" />
-          </div>
-        )}
+      <AppShellLayout>
         <StatusUtilityScopedReviewPulse
           actions={{ 'force-refresh-1': state.forceRefresh }}
         />
-      </div>
+      </AppShellLayout>
     );
   }
 
   return (
-    <div
-      data-setfarm-root
-      data-testid="setfarm-app-root"
-      className="relative min-h-screen w-full overflow-hidden bg-surface text-on-surface"
-    >
-      {state.lastError && state.lastError.recoverable && (
-        <div className="fixed top-4 right-4 bg-primary-container text-on-primary-container p-4 rounded-DEFAULT max-w-sm z-50">
-          <p className="font-body-sm">{state.lastError.message}</p>
-          <button
-            type="button"
-            onClick={state.clearError}
-            className="mt-2 text-primary hover:bg-inverse-primary rounded-full px-2 py-1 font-label-caps text-sm"
-          >
-            Kapat
-          </button>
-        </div>
-      )}
-      {state.storageStatus === 'saving' && (
-        <div className="fixed bottom-4 left-4 bg-surface-container text-on-surface-variant p-2 rounded-full text-xs font-label-caps">
-          Kaydediliyor...
-          <span className="pulse-dot ml-2 inline-block w-2 h-2 bg-primary rounded-full" />
-        </div>
-      )}
+    <AppShellLayout>
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <h1 className="font-headline-md text-headline-md text-on-surface mb-stack-default">
@@ -100,7 +92,7 @@ function AppContent() {
           <p className="font-body-sm text-on-surface-variant">Uygulama hazir</p>
         </div>
       </div>
-    </div>
+    </AppShellLayout>
   );
 }
 

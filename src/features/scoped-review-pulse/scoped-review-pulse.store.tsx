@@ -9,6 +9,7 @@ import React, {
   useReducer,
   useEffect,
   useCallback,
+  useMemo,
   useRef,
 } from 'react';
 import type {
@@ -277,9 +278,17 @@ export function useScopedReviewPulse(): AppContextValue {
 export function useAppActionHandlers(): AppActionHandlers {
   const { forceRefresh, navigate, clearError } = useScopedReviewPulse();
 
-  return {
-    forceRefresh,
-    navigateToSurface: (surface: ActiveSurfaceId) => navigate(surface, null),
-    clearError,
-  };
+  const navigateToSurface = useCallback(
+    (surface: ActiveSurfaceId) => navigate(surface, null),
+    [navigate],
+  );
+
+  return useMemo(
+    () => ({
+      forceRefresh,
+      navigateToSurface,
+      clearError,
+    }),
+    [forceRefresh, navigateToSurface, clearError],
+  );
 }
