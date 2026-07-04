@@ -1,0 +1,19 @@
+[
+  {
+    "screenId": "bfa766eef8b34378b78263907c83a215",
+    "title": "Status Utility - Scoped Review Pulse",
+    "componentName": "StatusUtilityScopedReviewPulse",
+    "file": "src/screens/StatusUtilityScopedReviewPulse.tsx",
+    "buttons": 1,
+    "inputs": 1,
+    "links": 0,
+    "actions": [
+      {
+        "id": "force-refresh-1",
+        "kind": "button",
+        "label": "Force Refresh",
+        "index": 0
+      }
+    ]
+  }
+]
